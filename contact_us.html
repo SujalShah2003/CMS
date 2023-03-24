@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="style.css">
+
+  <style>
+      .b1:hover{
+        background-color:green;
+      }
+      h2 i{
+        color:blue;
+      }
+      img{
+        width: 70px;
+        height: 70px;
+      }
+
+  </style>
+
+</head>
+<body>
+    <div class="container-mt-2">
+        <nav class="navbar navbar-expand-sm bg-dark nav-dark ms-auto d-block">
+            <ul class="navbar nav">
+                <li class="nav-item">
+                   <a class="nav-brad" href="#">
+                        <img src="logo.jpg" style="width:100px;" class="rounded-pill">
+                   </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about_us.html" class="nav-link" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="FAQ's.html" class="nav-link" target="_blank">FAQ's </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact_us.html" class="nav-link" target="_blank">Contact Us </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" target="_blank">Login Here </a>
+                </li>
+            </ul>
+        </nav>
+    
+    </div>
+    <div class="container">
+        <br>
+        <h1 class="mt-5" align="center">
+            <b>CONTACT US</b>
+        </h1>
+        <br>
+        <br>
+        <h3>For Any Kind of Feedback or Suggestion or Message then Please fill this form:</h3>
+        <br>
+        <br>
+
+        <div class="container">
+
+            <form action="" name="submit-to-google-sheet" method="POST">
+
+                <div class="row">
+                    <label class="col-6">Name:</label></td>
+                    <input class="col-6" type="text" name="Name" required>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <label class="col-6">Your Email Id:</label></td>
+                    <input class="col-6" type="email" name="Email" required>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <label class="col-6">Your Contact Number:</label></td>
+                    <input class="col-6" type="number" name="Contact_no" required>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <label class="col-6">Message Or Suggestion:</label>
+                    <textarea class="col-6" name="Message" rows="3" cols="10" required></textarea >
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <input class="b1 col-12" type="submit" name="submit" style="width:1000px;">
+                </div>
+                <br>
+                <span id="success"></span>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwGQmKO7QWXRbyP2jippR_9lvaLO3lHnBuL_qPVYRqcZYxLZ2D8FF49gDXn1Ymt93d0aA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const success=document.getElementById("success");
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        .then(response => {
+            success.innerHTML="<h2><i>THANK YOU FOR YOUR FEEDBACK OR SUGGESTION</i><img src='emoji.jpg'></h2>";
+            setTimeout(function()
+            {
+                success.innerHTML="";
+                
+            },2000)
+            form.reset();
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    </script>
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Content<span>Management System</span></h3>
+
+            <p class="footer-links">
+                <a href="Project.html">Home</a>
+                |
+                <a href="about_us.html">About Us</a>
+                |
+                <a href="FAQ's.html">FAQ's</a>
+                |
+                <a href="contact_us.html">Contact Us</a>
+            </p>
+
+            <p class="footer-company-name">Copyright © 2023 <strong>Content Management System</strong> All rights reserved</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <a href="#"><i class="fa fa-map-marker"></i></a>
+                <p><span>Ahmedabad</span>
+                    Gujarat</p>
+            </div>
+
+            <div>
+                <a href="#"><i class="fa fa-phone"></i></a>
+                <p>+91 97**7**228</p>
+            </div>
+            <div>
+                <a href="#"><i class="fa fa-envelope"></i></a>
+                <p><a href="#">contentmanagementsystem@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Content Management</strong> is a System were you find a detailed description related to events happened according to years.
+                You can find Detailed from year 2020 to 2023.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
